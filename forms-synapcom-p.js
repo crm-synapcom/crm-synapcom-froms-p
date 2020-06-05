@@ -56,7 +56,7 @@ $(document).ready(function() {
         var input = $(this);
         var re = /^\d{3}\.\d{3}\.\d{3}-\d{2}/;
         var mask_test = re.test(input.val());
-        var cpf_test = validarCPF(input.val());
+        var cpf_test = validateCPF(input.val());
         if(mask_test && cpf_test){
             input.removeClass("invalid").addClass("valid");
             $('span', input.parent()).removeClass('error_show').addClass('error');
