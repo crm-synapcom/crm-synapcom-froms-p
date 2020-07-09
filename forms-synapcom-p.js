@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    // substitute this value by an integer representing the lead origin 
+    origin_id = 0
+
     // focusout behavior-----------------------------------------------------------------------
     $('#contact_first_name').on('focusout', function() {
         var input = $(this);
@@ -212,14 +215,16 @@ $(document).ready(function() {
                 'utm_medium': sessionStorage.getItem('utm_medium') == null ? '' : sessionStorage.getItem('utm_medium'),
                 'utm_campaign': sessionStorage.getItem('utm_campaign') == null ? '' : sessionStorage.getItem('utm_campaign'),
                 'utm_term': sessionStorage.getItem('utm_term') == null ? '' : sessionStorage.getItem('utm_term'),
-                'utm_content': sessionStorage.getItem('utm_content') == null ? '' : sessionStorage.getItem('utm_content')
+                'utm_content': sessionStorage.getItem('utm_content') == null ? '' : sessionStorage.getItem('utm_content'),
+                'source_page': querystring[0],
+                'origin_id': origin_id
             };
-
+            
             $.ajax({
                 beforeSend: function() {
                     $('#loader').css('display', 'block')
                 },
-                url:'https://631a4vkgv4.execute-api.us-east-1.amazonaws.com/test/lead-palmeiras',
+                url:'https://631a4vkgv4.execute-api.us-east-1.amazonaws.com/prod/lead-palmeiras',
                 type:'POST',
                 dataType:'json',
                 contentType:'application/json; charset=utf-8',
