@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://crm-synapcom.github.io/miscellaneous/validate_cpf/cpf_validation.js"></script>
+        <script src="https://crm-synapcom.github.io/crm-synapcom-froms-p/forms-synapcom-p.js"></script>
+
+        <style>
+            input[type='checkbox'] {
+                float: left;
+                width: 20px;
+            }
+            input[type='checkbox'] + label {
+                display: block;
+                /* width: 30px; */
+            }
+            
+            .button {
+                background-color: #b59349;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: bold;
+                margin: 15px 2px;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .input {
+                border-color: rgb(255,255,255);
+                color: rgb(33,79,41);
+                width: 100%;
+                padding: 3px 15px;
+                font-size: 15px;
+                margin-top: 8px;
+                font-weight: 300;
+            }
+
+            a {
+                color: #b59349;
+            }
+            
+            .checker-radio_label {
+                width: 100%;
+                color: white;
+                font-weight: bold;
+                font-size: 15;
+                position: relative;
+            }
+
+            .error{
+			    display: none;
+			    margin-left: 10px;
+		    }
+            .error_show{
+		    	color: red;
+			    margin-left: 10px;
+		    }
+
+            .loader {
+                border: 8px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 8px solid #b59349;
+                width: 15px;
+                height: 15px;
+                animation: spin 2s linear infinite;
+                position: relative;
+                left: 50%;
+                margin-left: -7.5px;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            td {
+                padding: 3px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        
+        <form id="contact-form" method="post" class="forms" novalidate>
+            
+            <div>
+                <input type="text" class="input invalid" id="contact_first_name" name="first_name" placeholder="NOME"> 
+                <span class="error">Insira seu nome</span>
+            </div>
+            
+            <div>
+                <input type="text" class="input invalid" id="contact_last_name" name="last_name" placeholder="SOBRENOME">
+                <span class="error">Insira seu sobrenome</span>
+            </div>
+
+            <div>
+                <input type="text" class="input invalid" id="contact_birth_date" name="birth_date" placeholder="DATA DE NASCIMENTO (dd/mm/aaaa)" pattern="^\d{2}\/\d{2}\/\d{4}">
+                <span class="error">Insira uma data válida</span>
+            </div>
+            
+            <div>
+                <input type="text" class="input invalid" id="contact_email" name="email" placeholder="E-MAIL"> 
+                <span class="error">Insira um e-mail válido</span>
+            </div>
+            
+            <br>
+
+            <div>
+                <input type="checkbox" id="contact_sms_checker" name="sms_checker">
+                <label for="contact_sms_checker" class="checker-radio_label">Quero receber ofertas por SMS</label>
+            </div>
+
+            <div id="phone_block" style="display: none;">
+                <input type="text" class="input invalid" id="contact_phone" name="phone" placeholder="CELULAR COM DDD" /> <br>
+                <span class="error">Insira um número de celular válido</span>
+            </div>
+            <br>
+
+            <div>
+                <table>
+                    <tr style="padding: 4px;">
+                        <td>
+                            <p class="checker-radio_label">É torcedor Avanti?</p>
+                        </td>
+                        <td>
+                            <input type="radio" id="contact_cliente_avanti_yes" name="cliente_avanti_radio">
+                        </td>
+                        <td>
+                            <label style="position: relative;" for="contact_cliente_avanti_yes" class="checker-radio_label">Sim</label>
+                        </td>
+                        <td>
+                            <input type="radio" id="contact_cliente_avanti_no" name="cliente_avanti_radio">
+                        </td>
+                        <td>
+                            <label for="contact_cliente_avanti_no" class="checker-radio_label">Não</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="cpf_block" style="display: none;">
+                <input type="text" class="input invalid" id="contact_cpf" name="cpf" placeholder="CPF"> <br>
+                <span class="error">Insira um CPF válido</span>
+            </div>
+            <br>
+
+            <div > 
+                <input type="checkbox" id="contact_privacy_policy_checker" name="privacy_policy_checker">
+                <label for="contact_privacy_policy_checker" class="checker-radio_label">Li e concordo com a <a href="https://www.palmeirasstore.com/institucional/politica-privacidade" target="_blank">política de privacidade</a></label>
+            </div>
+
+            <br> 
+            
+            <div>
+                <input type="button" class="button" id="contact_submit" value="CADASTRAR">
+            </div>
+            <div class="loader" id="loader" style="display: none;"></div>
+        </form>
+        
+    </body>
+</html>
