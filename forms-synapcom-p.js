@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    // substitute this value by an integer representing the lead origin 
-    origin_id = 0
+    // substitute this value by an integer representing the lead origin
+    origin_id = $('#contact_origin_id').val();
 
     // focusout behavior-----------------------------------------------------------------------
     $('#contact_first_name').on('focusout', function() {
