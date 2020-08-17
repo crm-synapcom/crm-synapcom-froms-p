@@ -224,7 +224,7 @@ $(document).ready(function() {
                 beforeSend: function() {
                     $('#loader').css('display', 'block')
                 },
-                url:'https://sr37ffst1i.execute-api.us-east-1.amazonaws.com/prod/lead',
+                url:'https://s0h9el2qs1.execute-api.us-east-1.amazonaws.com/prod/lead',
                 type:'POST',
                 dataType:'json',
                 contentType:'application/json; charset=utf-8',
